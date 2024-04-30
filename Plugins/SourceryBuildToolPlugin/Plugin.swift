@@ -9,7 +9,7 @@ struct SourceryBuildToolPlugin: BuildToolPlugin {
 		builder.set(context: context)
 		let arguments = try builder.buildArgumentsForBuildToolPlugin()
 		let executablePath = try context.tool(named: Constants.toolName).path
-		Diagnostics.warning("[📂] outputPath: \(context.pluginWorkDirectory)")
+		Diagnostics.remark("[📂] outputPath: \(context.pluginWorkDirectory)")
 		return [
 			.prebuildCommand(
 				displayName: Constants.buildToolPluginDisplayName,

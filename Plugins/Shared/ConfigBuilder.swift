@@ -18,9 +18,14 @@ final class ConfigBuilder {
 		let outputPath = try makeOutputFilePath()
 		var config = try SourceryConfig(path: configPath)
 		config.output = outputPath.string
-		var arguments = try config.makeArguments(configDirectory: dirPath)
-		arguments.append("--disableCache")
-		return arguments
+		return try config.makeBuildToolPluginArguments(configDirectory: dirPath)
+	}
+
+	func buildArgumentsForSourceryCommandPlugin() throws -> [String] {
+		let dirPath = try buildConfigDirPath()
+		let configPath = dirPath.appending(Constants.configName)
+		let config = try SourceryConfig(path: configPath)
+		return try config.makeCommandPluginArguments(configDirectory: dirPath)
 	}
 
 	// MARK: - Private properties

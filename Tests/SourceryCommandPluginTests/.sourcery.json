@@ -1,0 +1,5 @@
+{
+	"sources": ["Sources"],
+	"templates": ["AutoMockable.stencil"],
+	"output": "Sources/generated.swift"
+}

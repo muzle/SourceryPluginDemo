@@ -20,9 +20,22 @@ let package = Package(
             capability: .buildTool(),
 			dependencies: ["sourcery"]
         ),
+		.plugin(
+			name: "SourceryCommandPlugin",
+			capability: .command(
+				intent: .custom(verb: "Run sourcery", description: "Generates data"),
+				permissions: [
+					.writeToPackageDirectory(reason: "This command generate resources")
+				]
+			),
+			dependencies: ["sourcery"]
+		),
 		.testTarget(
 			name: "SourceryBuildToolPluginTests",
 			dependencies: ["SourceryBuildToolPlugin"]
+		),
+		.testTarget(
+			name: "SourceryCommandPluginTests"
 		),
 		.binaryTarget(name: "sourcery", path: "sourcery.artifactbundle")
     ]
