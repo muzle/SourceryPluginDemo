@@ -20,6 +20,10 @@ let package = Package(
             capability: .buildTool(),
 			dependencies: ["sourcery"]
         ),
+		.testTarget(
+			name: "SourceryBuildToolPluginTests",
+			dependencies: ["SourceryBuildToolPlugin"]
+		),
 		.binaryTarget(name: "sourcery", path: "sourcery.artifactbundle")
     ]
 )

@@ -43,6 +43,6 @@ final class ConfigBuilder {
 
 	private func makeOutputFilePath() throws -> Path {
 		guard let context else { throw "[‼️] No PluginContext found" }
-		return context.pluginWorkDirectory.appending([Constants.outputDirName, Constants.outputFileName])
+		return context.pluginWorkDirectory.appending([/*Constants.outputDirName, */Constants.outputFileName])
 	}
 }

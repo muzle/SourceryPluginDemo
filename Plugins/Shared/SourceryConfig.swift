@@ -31,7 +31,7 @@ struct SourceryConfig: Codable {
 		guard sources.isNotEmpty else { throw "[‼️] sources parameter is missing in \(Constants.configName)" }
 		guard templates.isNotEmpty else { throw "[‼️] templates parameter is missing in \(Constants.configName)" }
 
-		var result = [Consts.output, path.appending(output).string]
+		var result = [Consts.output, output]
 
 		sources.forEach {
 			result.append(Consts.sources)
