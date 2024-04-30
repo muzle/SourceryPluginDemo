@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "SourceryPluginDemo",
+    name: "SourceryPlugin",
     products: [
         // Products can be used to vend plugins, making them visible to other packages.
         .plugin(
