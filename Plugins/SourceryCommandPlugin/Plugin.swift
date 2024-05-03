@@ -54,6 +54,16 @@ struct SourceryCommandPlugin: CommandPlugin {
 	}
 }
 
+#if canImport(XcodeProjectPlugin)
+import XcodeProjectPlugin
+
+extension SourceryCommandPlugin: XcodeCommandPlugin {
+	func performCommand(context: XcodePluginContext, arguments: [String]) throws {
+		print("zaza")
+	}
+}
+#endif
+
 private extension PluginContext.Tool {
 	func run(arguments: [String]) throws {
 		let task = Process()
