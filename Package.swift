@@ -9,7 +9,7 @@ let package = Package(
         // Products can be used to vend plugins, making them visible to other packages.
         .plugin(
             name: "SourceryBuildToolPlugin",
-            targets: ["SourceryBuildToolPlugin"]
+            targets: ["SourceryBuildToolPlugin", "SourceryCommandPlugin"]
 		),
     ],
     targets: [
