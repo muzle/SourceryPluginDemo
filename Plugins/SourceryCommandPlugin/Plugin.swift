@@ -59,7 +59,13 @@ import XcodeProjectPlugin
 
 extension SourceryCommandPlugin: XcodeCommandPlugin {
 	func performCommand(context: XcodePluginContext, arguments: [String]) throws {
-		print("zaza")
+		let apolloPath = "\(context.pluginWorkDirectory)/../../checkouts/apollo-ios"
+		let process = Process()
+		let path = try context.tool(named: "sh").path
+		process.executableURL = URL(fileURLWithPath: path.string)
+		process.arguments = ["\(apolloPath)/scripts/download-cli.sh", context.xcodeProject.directory.string]
+		try process.run()
+		process.waitUntilExit()
 	}
 }
 #endif
